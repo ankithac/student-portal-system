@@ -28,35 +28,12 @@ public class AdminController {
         return studentService.getAllStudents();
     }
 
-    @GetMapping("/admin/branch/section/students/subjectId/1/studentId/{id}")
+  //  @GetMapping("/admin/branch/section/students/subjectId/1/studentId/{id}")
+    @GetMapping("/students/{id}")
     public Optional<Student> getStudentById(@PathVariable int id){
         return studentService.getStudentById(id);
     }
 
 
-//    @GetMapping(value = "/employee/{id}")
-//    public Student getEmployeeById(@PathVariable("id") int id) {
-//        return employeeService.getEmployeeById(id);
-//    }
-//
-//
-//    @PostMapping("/employee")
-//    public Employee createEmployee(@Valid @RequestBody Employee emp) {
-//
-//        return employeeService.createEmployee(emp);
-//    }
-//
-//
-//    @PutMapping(value = "/employee/{id}")
-//    public Employee UpdateEmployeeById(@PathVariable("id") int id, @RequestBody Employee emp) {
-//        return employeeService.updateEmployeeById(id,emp);
-//    }
-//
-//
-//    @DeleteMapping(value = "/employee/{id}")
-//    public String deleteEmployeeById(@PathVariable("id") int id) {
-//        employeeService.deleteEmployeeById(id);
-//        return "Employee with id " + id + " has been deleted!";
-//    }
 }
 

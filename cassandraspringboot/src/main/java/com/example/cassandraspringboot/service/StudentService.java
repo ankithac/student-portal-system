@@ -3,6 +3,7 @@ package com.example.cassandraspringboot.service;
 
 import com.example.cassandraspringboot.entity.Student;
 
+import com.example.cassandraspringboot.exceptions.StudentNotFoundException;
 import com.example.cassandraspringboot.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,17 +41,17 @@ public class StudentService {
 
     }
 
+
     public Optional<Student> getStudentById(int id){
+        Optional <Student> optionalStudent = studentRepo.findById(id);
+        System.out.println(optionalStudent);
+        System.out.println("hi");
+        if(!optionalStudent.isPresent())
+            throw new StudentNotFoundException("Student not found!");
         return studentRepo.findById(id);
+
     }
 
-//    public Employee getEmployeeById(int id) {
-//        Optional<Employee> optionalEmployee = employeeRepo.findById(id);
-//        if (!optionalEmployee.isPresent())
-//            throw new EmployeeNotFoundException("Employee with ID not found!");
-//        return employeeRepo.findById(id).get();
-//    }
-//
 //
 //    public Employee updateEmployeeById(int id, Employee emp) {
 //        Optional<Employee> optionalEmployee = employeeRepo.findById(id);

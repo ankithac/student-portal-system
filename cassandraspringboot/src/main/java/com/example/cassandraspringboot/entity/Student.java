@@ -1,5 +1,7 @@
 package com.example.cassandraspringboot.entity;
 
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+
 import javax.persistence.*;
 
 import javax.validation.constraints.Email;
@@ -13,6 +15,7 @@ import java.util.Arrays;
 public class Student {
 
     @Id
+    @PrimaryKey
     private Integer studentId;
     @NotNull
     private String studentName;
