@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 
 @Entity
-@Table(name="employee")
+@Table(name="student")
 public class Student {
 
     @Id
