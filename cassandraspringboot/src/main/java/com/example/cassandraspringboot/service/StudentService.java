@@ -18,39 +18,22 @@ public class StudentService {
     private StudentRepo studentRepo;
 
 
-//    public Employee createEmployee(Employee emp) {
-//
-//        return employeeRepo.save(emp);
-//    }
-
-
     public List<Student> getAllStudents() {
 
         return studentRepo.findAll();
     }
 
-    public List<Student> getAllStudentsBySection(){
-         List<Student> students = studentRepo.findAll();
-         List<Student> newList = null;
-         for(Student student : students){
-             if((student.getStudentBranch() == "Electronics") && (student.getStudentSection()=="A")){
-                 newList.add(student);
-             }
-         }
-         return null;
-
-    }
-
 
     public Optional<Student> getStudentById(int id){
         Optional <Student> optionalStudent = studentRepo.findById(id);
-        System.out.println(optionalStudent);
-        System.out.println("hi");
         if(!optionalStudent.isPresent())
             throw new StudentNotFoundException("Student not found!");
         return studentRepo.findById(id);
 
     }
+
+
+
 
 //
 //    public Employee updateEmployeeById(int id, Employee emp) {

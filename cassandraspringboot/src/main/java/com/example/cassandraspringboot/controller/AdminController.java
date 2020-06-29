@@ -3,6 +3,7 @@ package com.example.cassandraspringboot.controller;
 import com.example.cassandraspringboot.entity.Student;
 
 import com.example.cassandraspringboot.service.StudentService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,14 +23,13 @@ public class AdminController {
     }
 
 
-    @GetMapping("/students")
+    @GetMapping("/admin/branch/section/students/subjectId/1")
     public List<Student> getAllStudents() {
 
         return studentService.getAllStudents();
     }
 
-  //  @GetMapping("/admin/branch/section/students/subjectId/1/studentId/{id}")
-    @GetMapping("/students/{id}")
+    @GetMapping("/admin/branch/section/students/subjectId/1/studentId/{id}")
     public Optional<Student> getStudentById(@PathVariable int id){
         return studentService.getStudentById(id);
     }
