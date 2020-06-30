@@ -55,6 +55,17 @@ public class StudentService {
 //        return newList;
 //
 //    }
+    public List<Student> updateAllStudentsAttendance(Integer new_attendance) {
+        List<Student> students = studentRepo.findAll();
+        for(Student s : students) {
+            s.setStudentAttendance(s.getStudentAttendance()+new_attendance);
+       }
+       return studentRepo.findAll();
+    }
+
+    public Student addStudent(Student s){
+        return studentRepo.save(s);
+    }
 
 
     public Optional<Student> getStudentById(int id){
