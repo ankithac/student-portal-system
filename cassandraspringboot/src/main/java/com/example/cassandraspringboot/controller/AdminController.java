@@ -47,6 +47,11 @@ public class AdminController {
         return studentService.getStudentById(id);
     }
 
+    @DeleteMapping("/admin/branch/{branch}/section/{section}/students/studentId/{studentId}")
+    public String deleteStudentById(@PathVariable String branch, @PathVariable String section, @PathVariable int studentId){
+        return studentService.deleteStudentById(branch, section, studentId);
+    }
+
 
 }
 

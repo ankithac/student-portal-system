@@ -65,6 +65,15 @@ public class StudentService {
 
     }
 
+    public String deleteStudentById(String branch,String section, int studentId){
+        Optional <Student> optionalStudent = studentRepo.findById(studentId);
+        if(!optionalStudent.isPresent())
+            throw new StudentNotFoundException("Student not found!");
+        studentRepo.deleteById(studentId);
+        return "Done!";
+
+    }
+
 
 
 
