@@ -51,6 +51,16 @@ public class AdminController {
     public String deleteStudentById(@PathVariable String branch, @PathVariable String section, @PathVariable int studentId){
         return studentService.deleteStudentById(branch, section, studentId);
     }
+    
+     @PutMapping("/admin/branch/section/students/subj_id/{new_attendance}")
+    public List<Student> updateAllStudentsAttendance(@PathVariable Integer new_attendance) {
+        return studentService.updateAllStudentsAttendance(new_attendance);
+    }
+    @PostMapping("/admin/branch/section/add/student")
+    public Student addStudent(@RequestBody Student s) {
+        return studentService.addStudent(s);
+
+        }
 
 
 }
