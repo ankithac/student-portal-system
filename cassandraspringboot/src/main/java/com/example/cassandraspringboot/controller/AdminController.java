@@ -7,6 +7,7 @@ import com.example.cassandraspringboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,12 +23,24 @@ public class AdminController {
         return "Hey the Application is running on port 8050";
     }
 
-
-    @GetMapping("/admin/branch/section/students/subjectId/1")
+    //get all students
+    @GetMapping("/admin/branch/section/students")
     public List<Student> getAllStudents() {
 
         return studentService.getAllStudents();
+
     }
+    //get all students of a class
+    @GetMapping("/admin/branch/{branch}/section/{section}/students")
+    public List<Student> getStudentsByBranch(@PathVariable String branch, @PathVariable String section){
+        return studentService.getAllStudentsByBranch(branch,section);
+    }
+
+//    //get all students of a class of a subject
+//    @GetMapping("/admin/branch/{branch}/section/{section}/students/subjectId/{subjectId}")
+//    public List<Student> getStudentsBySubjectId(@PathVariable String branch, @PathVariable String section, @PathVariable int subjectId){
+//        return studentService.getStudentsBySubjectId(branch,section,subjectId);
+//    }
 
     @GetMapping("/admin/branch/section/students/subjectId/1/studentId/{id}")
     public Optional<Student> getStudentById(@PathVariable int id){
